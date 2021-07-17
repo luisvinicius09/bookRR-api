@@ -16,12 +16,14 @@ ActiveRecord::Schema.define(version: 2021_07_17_183207) do
   enable_extension "plpgsql"
 
   create_table "appoiments", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "car_id"
+    t.bigint "user_id"
+    t.bigint "car_id"
     t.string "date"
     t.string "city"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["car_id"], name: "index_appoiments_on_car_id"
+    t.index ["user_id"], name: "index_appoiments_on_user_id"
   end
 
   create_table "cars", force: :cascade do |t|
