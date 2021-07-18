@@ -1,4 +1,3 @@
 class Car < ApplicationRecord
-  has_many :appoiments
-  has_many :users :through => :appoiments
+  has_many :appoiments, dependent: :destroy
 end
